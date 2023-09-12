@@ -8,15 +8,15 @@ from langchain.chat_models import ChatOpenAI
 from PIL import Image
 from rmrkl import ChatZeroShotAgent, RetryAgentExecutor
 
-from chemcrow.agents import ChemCrow
-#from chemcrow
-from chemcrow.agents.prompts import (FORMAT_INSTRUCTIONS, QUESTION_PROMPT,
+from chemllama.agents import ChemCrow
+#from chemllama
+from chemllama.agents.prompts import (FORMAT_INSTRUCTIONS, QUESTION_PROMPT,
                                      SUFFIX)
-from chemcrow.frontend.streamlit_callback_handler import \
+from chemllama.frontend.streamlit_callback_handler import \
     StreamlitCallbackHandlerChem
 from langchain.callbacks import StreamlitCallbackHandler
-from chemcrow.frontend.utils import cdk
-#from chemcrow.mol_utils.generals import is_smiles
+from chemllama.frontend.utils import cdk
+#from chemllama.mol_utils.generals import is_smiles
 
 from dotenv import load_dotenv
 
