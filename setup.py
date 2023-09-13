@@ -2,18 +2,18 @@ from setuptools import find_packages, setup
 
 # for typing
 __version__ = "0.0.0"
-exec(open("chemcrow/version.py").read())
+exec(open("chemllama/version.py").read())
 
 with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
 setup(
-    name="chemcrow",
+    name="chemllama",
     version=__version__,
-    description="Accurate solution of reasoning-intensive chemical tasks, poweredby LLMs.",
-    author="Andres M Bran, Sam Cox, Andrew White, Philippe Schwaller",
-    author_email="andrew.white@rochester.edu",
-    url="https://github.com/ur-whitelab/chemcrow-public",
+    description="Accurate solution of reasoning-intensive biochemical tasks, poweredby LLMs.",
+    author="Chin Keong Lam",
+    author_email="cklam@patho.ai",
+    url="https://www.patho.ai",
     license="MIT",
     packages=find_packages(),
     install_requires=[
