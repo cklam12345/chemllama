@@ -5,8 +5,8 @@ import tiktoken
 from langchain import LLMChain, PromptTemplate
 from langchain.tools import BaseTool
 from langchain.llms import OpenAI, BaseLLM
-from chemcrow.tools import Query2SMILES
-from chemcrow.utils import is_smiles
+from chemllama.tools import Query2SMILES
+from chemllama.utils import is_smiles
 from .prompts import safety_summary_prompt, summary_each_data
 
 

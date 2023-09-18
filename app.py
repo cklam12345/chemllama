@@ -8,7 +8,7 @@ from langchain.chat_models import ChatOpenAI
 from PIL import Image
 from rmrkl import ChatZeroShotAgent, RetryAgentExecutor
 
-from chemllama.agents import ChemCrow
+from chemllama.agents import ChemLlama
 #from chemllama
 from chemllama.agents.prompts import (FORMAT_INSTRUCTIONS, QUESTION_PROMPT,
                                      SUFFIX)
@@ -26,7 +26,7 @@ ss = st.session_state
 #tools = ChemTools().all_tools
 
 
-agent = ChemCrow(
+agent = ChemLlama(
     #tools,
     model='gpt-4',
     temp=0.1,
@@ -41,7 +41,7 @@ agent = ChemCrow(
 
 icon = Image.open('assets/logo0.png')
 st.set_page_config(
-    page_title="ChemCrow",
+    page_title="ChemLlama",
     page_icon = icon
 )
 
@@ -66,10 +66,8 @@ def on_api_key_change():
 
 # sidebar
 with st.sidebar:
-    chemcrow_logo = Image.open('assets/chemcrow-logo-bold-new.png')
-    st.image(chemcrow_logo)
-
-    # Input OpenAI api key
+    chemllama_logo = Image.open('assets/chemllama-logo-bold-new.png')
+    st.image(chemllama_logo)
     st.markdown('Input your OpenAI API key.')
     st.text_input('OpenAI API key', type='password', key='api_key', on_change=on_api_key_change, label_visibility="collapsed")
 

@@ -1,12 +1,12 @@
-import chemcrow
+import chemllama
 
 
 def test_version():
-    assert chemcrow.__version__
+    assert chemllama.__version__
 
 
 def test_agent_init():
-    chem_model = chemcrow.ChemCrow(
+    chem_model = chemllama.ChemLlama(
         model="gpt-4-0613",
         temp=0.1,
         max_iterations=2,

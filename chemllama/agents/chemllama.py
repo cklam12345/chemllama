@@ -31,7 +31,7 @@ def _make_llm(model, temp, verbose, api_key):
     return llm
 
 
-class ChemCrow:
+class ChemLlama:
     def __init__(
         self,
         tools=None,
@@ -90,5 +90,5 @@ class ChemCrow:
         #final += f"Final Answer: {outputs['output']}"
 
         #rephrased = self.rephrase_chain.run(question=prompt, agent_ans=final)
-        #print(f"ChemCrow output: {rephrased}")
+        #print(f"ChemLlama output: {rephrased}")
         #return rephrased

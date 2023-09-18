@@ -1,7 +1,7 @@
 from langchain.tools import BaseTool
 from time import sleep
 from rxn4chemistry import RXN4ChemistryWrapper
-from chemcrow.utils import is_smiles
+from chemllama.utils import is_smiles
 
 class RXNPredict(BaseTool):
     name = "RXNPredict"
@@ -23,7 +23,7 @@ class RXNPredict(BaseTool):
             api_key=self.rxn4chem_api_key,
             base_url=self.base_url
         )
-        self.rxn4chem.create_project("ChemCrow")
+        self.rxn4chem.create_project("ChemLlama")
 
     def _run(self, reactants: str) -> str:
 

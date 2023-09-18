@@ -3,7 +3,7 @@ import os
 from langchain import agents
 from langchain.base_language import BaseLanguageModel
 
-from chemcrow.tools import *
+from chemllama.tools import *
 
 
 def make_tools(
@@ -11,8 +11,8 @@ def make_tools(
         api_keys: dict = {},
         verbose=True
 ):
-    serp_key = api_keys.get('SERP_API_KEY') or os.getenv("SERP_API_KEY")
-    rxn4chem_api_key = api_keys.get('RXN4CHEM_API_KEY') or os.getenv("RXN4CHEM_API_KEY")
+    serp_key = os.getenv("SERP_API_KEY")
+    rxn4chem_api_key = os.getenv("RXN4CHEM_API_KEY")
 
     all_tools = agents.load_tools([
         "python_repl",

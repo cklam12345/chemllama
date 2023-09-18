@@ -1,4 +1,4 @@
-from .chemcrow import ChemCrow
+from .chemllama import ChemLlama
 from .tools import make_tools
 
-__all__ = ["ChemCrow", "make_tools"]
+__all__ = ["ChemLlama", "make_tools"]

@@ -2,7 +2,7 @@ import pytest
 from dotenv import load_dotenv
 from langchain.chat_models import ChatOpenAI
 
-from chemcrow.tools.search import LitSearch
+from chemllama.tools.search import LitSearch
 
 load_dotenv()
 

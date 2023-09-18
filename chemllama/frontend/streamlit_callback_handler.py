@@ -10,7 +10,7 @@ import streamlit as st
 from rmrkl import ChatZeroShotAgent, RetryAgentExecutor
 from IPython.core.display import HTML
 import requests
-from chemcrow.agents.prompts import FORMAT_INSTRUCTIONS, SUFFIX, QUESTION_PROMPT
+from chemllama.agents.prompts import FORMAT_INSTRUCTIONS, SUFFIX, QUESTION_PROMPT
 
 from enum import Enum
 from typing import TYPE_CHECKING, Any, Dict, List, NamedTuple, Optional, Union

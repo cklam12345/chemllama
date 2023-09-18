@@ -3,7 +3,7 @@ import requests
 from langchain.tools import BaseTool
 from rdkit import Chem
 
-from chemcrow.utils import *
+from chemllama.utils import *
 
 
 class Query2SMILES(BaseTool):
