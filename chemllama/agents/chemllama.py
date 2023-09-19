@@ -1,5 +1,6 @@
 import langchain
 import nest_asyncio
+from langchain.llms import LlamaCpp
 from langchain import PromptTemplate, chains
 from langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler
 from rmrkl import ChatZeroShotAgent, RetryAgentExecutor
@@ -10,18 +11,24 @@ from langchain.llms import CTransformers
 
 def _make_llm(model, temp, verbose, api_key):
     if model.startswith("gpt-3.5-turbo") or model.startswith("gpt-4"):
-        llm = CTransformers(
-        model = "llama-2-7b-chat.ggmlv3.q8_0.bin",
-        model_type="llama",
-        max_new_tokens = 512,
-        temperature = 0.5
+        llm = LlamaCpp(
+        model_path="openorca-platypus2-13b.gguf.q4_0.bin",
+        temperature=0.75,
+        max_tokens=2000,
+        top_p=1,
+        n_ctx=2048,
+        verbose=True, # Verbose is required to pass to the callback manager,
+        callbacks=[StreamingStdOutCallbackHandler()] if verbose else [None]
     )
     elif model.startswith("text-"):
-        llm = CTransformers(
-        model = "llama-2-7b-chat.ggmlv3.q8_0.bin",
-        model_type="llama",
-        max_new_tokens = 512,
-        temperature = 0.5
+        llm = LlamaCpp(
+        model_path="openorca-platypus2-13b.gguf.q4_0.bin",
+        temperature=0.75,
+        max_tokens=2000,
+        top_p=1,
+        n_ctx=2048,
+        verbose=True, # Verbose is required to pass to the callback manager,
+        callbacks=[StreamingStdOutCallbackHandler()] if verbose else [None]
     )
     else:
         raise ValueError(f"Invalid model name: {model}")
@@ -34,7 +41,7 @@ class ChemLlama:
         tools=None,
         model="gpt-3.5-turbo-0613",
         tools_model="gpt-3.5-turbo-0613",
-        temp=0.1,
+        temp=0.75,
         max_iterations=40,
         verbose=True,
         openai_api_key: str = None,

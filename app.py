@@ -29,7 +29,7 @@ ss = st.session_state
 agent = ChemLlama(
     #tools,
     model='gpt-4',
-    temp=0.1,
+    temp=0.75,
 ).agent_executor
 
 
