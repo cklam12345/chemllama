@@ -6,26 +6,23 @@ from rmrkl import ChatZeroShotAgent, RetryAgentExecutor
 
 from .prompts import FORMAT_INSTRUCTIONS, QUESTION_PROMPT, REPHRASE_TEMPLATE, SUFFIX
 from .tools import make_tools
-
+from langchain.llms import CTransformers
 
 def _make_llm(model, temp, verbose, api_key):
     if model.startswith("gpt-3.5-turbo") or model.startswith("gpt-4"):
-        llm = langchain.chat_models.ChatOpenAI(
-            temperature=temp,
-            model_name=model,
-            request_timeout=1000,
-            streaming=True if verbose else False,
-            callbacks=[StreamingStdOutCallbackHandler()] if verbose else [None],
-            openai_api_key = api_key
-        )
+        llm = CTransformers(
+        model = "llama-2-7b-chat.ggmlv3.q8_0.bin",
+        model_type="llama",
+        max_new_tokens = 512,
+        temperature = 0.5
+    )
     elif model.startswith("text-"):
-        llm = langchain.OpenAI(
-            temperature=temp,
-            model_name=model,
-            streaming=True if verbose else False,
-            callbacks=[StreamingStdOutCallbackHandler()] if verbose else [None],
-            openai_api_key = api_key
-        )
+        llm = CTransformers(
+        model = "llama-2-7b-chat.ggmlv3.q8_0.bin",
+        model_type="llama",
+        max_new_tokens = 512,
+        temperature = 0.5
+    )
     else:
         raise ValueError(f"Invalid model name: {model}")
     return llm

@@ -68,8 +68,8 @@ def on_api_key_change():
 with st.sidebar:
     chemllama_logo = Image.open('assets/chemllama-logo-bold-new.png')
     st.image(chemllama_logo)
-    st.markdown('Input your OpenAI API key.')
-    st.text_input('OpenAI API key', type='password', key='api_key', on_change=on_api_key_change, label_visibility="collapsed")
+    st.markdown('Input your Patho.Ai API key.')
+    st.text_input('Patho.Ai API key', type='password', key='api_key', on_change=on_api_key_change, label_visibility="collapsed")
 
     # Display available tools
     #st.markdown(f"# Available tools: {len(tools)}")
